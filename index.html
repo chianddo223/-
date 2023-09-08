@@ -84,40 +84,40 @@
         const $numEight = document.querySelector('#num-8');
         const $numNine = document.querySelector('#num-9');
 
-    //    $numBtn.forEach(button => button.addEventListener('click', onClickNumber));
-
-        // document.querySelector('#plus').addEventListener('click', onClickOperator('+'));
-        // document.querySelector('#minus').addEventListener('click', onClickOperator('-'));
-        // document.querySelector('#divide').addEventListener('click', onClickOperator('/'));
-        // document.querySelector('#multiply').addEventListener('click', onClickOperator('*'));
-        // document.querySelector('#calculate').addEventListener('click', () => { });
+        document.querySelector('#plus').addEventListener('click', onClickOperator('+'));
+        document.querySelector('#minus').addEventListener('click', onClickOperator('-'));
+        document.querySelector('#divide').addEventListener('click', onClickOperator('/'));
+        document.querySelector('#multiply').addEventListener('click', onClickOperator('*'));
+        document.querySelector('#calculate').addEventListener('click', () => { });
         $calculate.addEventListener('click', showNum);
 
-        $numZero.addEventListener('click', () => {
-            if(operator){
-                numTwo += '0';
-            }else{
-                numOne += '0';
-            }
-        });
-        $numOne.addEventListener('click', () => {});
-        $numTwo.addEventListener('click', () => {});
-        $numThree.addEventListener('click', () => {});
-        $numFour.addEventListener('click', () => {});
-        $numFive.addEventListener('click', () => {});
-        $numSix.addEventListener('click', () => {});
-        $numSeven.addEventListener('click', () => {});
-        $numEight.addEventListener('click', () => {});
-        $numNine.addEventListener('click', () => {});
+        $numZero.addEventListener('click', onClickNumber('0'));
+        $numOne.addEventListener('click', onClickNumber('1'));
+        $numTwo.addEventListener('click', onClickNumber('2'));
+        $numThree.addEventListener('click', onClickNumber('3'));
+        $numFour.addEventListener('click', onClickNumber('4'));
+        $numFive.addEventListener('click', onClickNumber('5'));
+        $numSix.addEventListener('click', onClickNumber('6'));
+        $numSeven.addEventListener('click', onClickNumber('7'));
+        $numEight.addEventListener('click', onClickNumber('8'));
+        $numNine.addEventListener('click', onClickNumber('9'));
 
         function showNum() {
             $result.style.color = 'black';
         }
-        $result.value = ' ';
-        // function onClickNumber() {
-        //     $result.value = $result.value + String();
-        //     // $result.value = console.log($result.value + String(num))
-        // }
+
+        $result.value = '';
+        function onClickNumber(num) {
+            return function () {
+                let inNumber = $result.value += num; 
+            };
+        };
+
+        function onClickOperator(op){
+            return function(){
+
+            }
+        }
     </script>
 </body>
 
