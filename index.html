@@ -84,7 +84,18 @@
         let numOne = '';
         let numTwo = '';
         $result.value = '';
+
         function onClickNumber(event) {
+            if(numOne==='' && event.target.textContent==='0'){
+                alert('0 외에 숫자를 입력해주세요');
+                return;
+            };
+
+            if ($result.style.color === 'black' && !$operator.value) {
+                numOne = '';
+                $result.style.color = 'gray';
+            };
+
             if (!$operator.value) { //오퍼레이터 비었을 때
                 numOne += event.target.textContent;
                 $result.value = numOne;
@@ -92,8 +103,8 @@
                 $result.value = '';
                 numTwo += event.target.textContent;
                 $result.value = numTwo;
-            }
-        };
+            };
+        }
 
         $operator.value = '';
         function onClickOperator(event) {
@@ -165,5 +176,4 @@
         }
     </script>
 </body>
-
 </html>
